@@ -1,51 +1,78 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import gsap from "gsap";
 
 import "./Navbar.css";
-import instagramSvg from "../../static/icons/instagram.svg";
+import instagramSvg from "../../static/icons/icons8-instagram-logo.svg";
+import { navbarAnimations } from "./navbarAnimations";
 
 const Navbar = () => {
-  useEffect(() => {
-    const t1 = gsap.timeline();
-    t1.from(".navbar", {
-      opacity: 0,
-      delay: 2,
-      duration: 1.5,
-      y: -50,
-      ease: "power3.out",
-    });
-  }, []);
-  return (
-    <div className="navbar">
-      <div className="navbar__inner">
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/faces">Faces</Link>
-          </li>
-        </ul>
-        <div className="navbar__title-group">
-          <h1 className="navbar__title">YZCPHOTOGRAPHY</h1>
-          <h4 className="navbar__subtitles">
-            <span>about</span>
-            {" // "}
-            <span>portfolio</span>
-            {" // "}
-            <span>contact</span>
-          </h4>
-        </div>
+  const [open, setOpen] = useState(false);
 
-        <img
-          className="navbar__instagram-icon"
-          width={30}
-          src={instagramSvg}
-          alt="ig"
-        />
+  useEffect(() => {
+    navbarAnimations.navbarIn();
+  }, []);
+
+  const handleShowSidebar = () => {
+    if (open) {
+      navbarAnimations.hideSideBar();
+    } else {
+      navbarAnimations.showSideBar();
+    }
+
+    setOpen(!open);
+  };
+
+  return (
+    <>
+      <div className="navbar__hamburger" onClick={handleShowSidebar}>
+        <div className="navbar__hamburger-line navbar__hamburger-line-1"></div>
+        <div className="navbar__hamburger-line navbar__hamburger-line-2"></div>
       </div>
-    </div>
+      <div className="navbar">
+        <div className="navbar__inner">
+          <div></div>
+
+          <div className="navbar__title-group">
+            <h1 className="navbar__title">
+              <Link to="/">YZCPHOTOGRAPHY</Link>
+            </h1>
+            <h4 className="navbar__subtitles">
+              <Link to="/about">about</Link>
+              {" // "}
+              <span>portfolio</span>
+              {" // "}
+              <span>contact</span>
+            </h4>
+          </div>
+          <a
+            href="https://www.instagram.com/laurazzic/"
+            target="_blank"
+            rel="noreferrer"
+            style={{ paddingTop: "10px" }}
+          >
+            <img
+              className="navbar__instagram-icon"
+              width={32}
+              src={instagramSvg}
+              alt="instagram link"
+            />
+          </a>
+        </div>
+      </div>
+      <div className="sidebar">
+        <div className="sidebar-inner">
+          <Link>
+            <h1 className="sidebar-link">about</h1>
+          </Link>
+          <Link>
+            <h1 className="sidebar-link">contact</h1>
+          </Link>
+          <Link>
+            <h1 className="sidebar-link">portfolio</h1>
+          </Link>
+        </div>
+      </div>
+    </>
   );
 };
 
