@@ -9,6 +9,7 @@ import img2 from "../../static/images/little-missy.jpeg";
 import img1 from "../../static/images/sweet-treat.jpeg";
 import { HomeImage } from "./HomeImage";
 import { HomeName } from "./HomeName";
+import { homeAnimations } from "./homeAnimations";
 
 const Home = () => {
   const [images, setImages] = useState([
@@ -20,32 +21,20 @@ const Home = () => {
   ]);
 
   useEffect(() => {
-    const t1 = gsap.timeline();
-    const t2 = gsap.timeline();
+    homeAnimations.navigationIn();
+    homeAnimations.initialNameIn();
+    homeAnimations.homeTitleZip();
 
-    t1.from(".p-home__navigation", {
-      delay: 2.4,
-      duration: 1.3,
-      opacity: 0,
-      ease: "power3.out",
-    });
-    t2.from(".p-home__name-container", {
-      delay: 2.4,
-      duration: 1.3,
-      opacity: 0,
-      ease: "power3.out",
-      y: 100,
-    });
-    images.forEach((_, i) => {
-      t1.to(`.p-home__image-${i}`, {
-        delay: -1.5,
-        duration: 1.5,
-        rotation:
-          ((i % 2) - 0.5) * (images.length - i) * (images.length - i) * 0.75,
-        transformOrigin: "50% 50%",
-        ease: "power3.out",
-      });
-    });
+    // images.forEach((_, i) => {
+    //   t1.to(`.p-home__image-${i}`, {
+    //     delay: -1.5,
+    //     duration: 1.5,
+    //     rotation:
+    //       ((i % 2) - 0.5) * (images.length - i) * (images.length - i) * 0.75,
+    //     transformOrigin: "50% 50%",
+    //     ease: "power3.out",
+    //   });
+    // });
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -87,6 +76,9 @@ const Home = () => {
               />
             );
           })}
+        </div>
+        <div className="p-home__title-container">
+          <h1 className="p-home__title">YZCPHOTOGRAPHY</h1>
         </div>
         <div className="p-home__navigation">
           <span className="p-home__navigation__prev" onClick={handlePrevious}>

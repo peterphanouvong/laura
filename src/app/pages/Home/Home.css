@@ -134,3 +134,21 @@
   top: 10rem;
   z-index: 20;
 }
+.p-home__title-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+}
+
+.p-home__title {
+  letter-spacing: 1rem;
+  font-weight: 400;
+  color: white;
+  opacity: 0.8;
+  font-size: 4rem;
+}
