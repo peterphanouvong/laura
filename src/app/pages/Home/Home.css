@@ -1,0 +1,136 @@
+.p-home {
+  height: 100vh;
+  background: var(--g-grey-900);
+
+  transition: 0.5s ease;
+}
+
+.p-home-grain::after {
+  height: 100vh;
+  animation: grain 24s steps(10) infinite;
+  background-image: url("../../static/images/old_moon.jpg");
+  /* background: white; */
+  content: "";
+  height: 300%;
+  left: -50%;
+  opacity: 0.2;
+  position: fixed;
+  top: -100%;
+  width: 300%;
+}
+
+@keyframes grain {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-2%, -5%);
+  }
+  20% {
+    transform: translate(-7%, 5%);
+  }
+  30% {
+    transform: translate(7%, -15%);
+  }
+  40% {
+    transform: translate(-3%, 5%);
+  }
+  50% {
+    transform: translate(-10%, 10%);
+  }
+  60% {
+    transform: translate(12%, 0%);
+  }
+  70% {
+    transform: translate(0%, 13%);
+  }
+  80% {
+    transform: translate(3%, -12%);
+  }
+  90% {
+    transform: translate(-10%, 10%);
+  }
+}
+
+.p-home__image-wrapper {
+  overflow: hidden;
+}
+
+.p-home__image {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  -webkit-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+}
+
+.p-home__navigation {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 45vw;
+  display: flex;
+  justify-content: space-between;
+  color: white;
+
+  font-size: var(--g-fs-medium);
+  letter-spacing: 2px;
+  z-index: 100;
+}
+
+.p-home__navigation > span {
+  transition: 0.3s ease;
+  opacity: 0.8;
+}
+
+.p-home__navigation > span:hover {
+  cursor: pointer;
+  /* font-weight: 600; */
+  letter-spacing: 4px;
+  transition: 0.3s ease;
+}
+
+.p-home__navigation__prev::after {
+  content: "";
+  width: 50px;
+  height: 1px;
+  background: white;
+  position: absolute;
+  top: 50%;
+  margin-left: 10px;
+}
+
+.p-home__navigation__next::before {
+  content: "";
+  width: 50px;
+  height: 1px;
+  background: white;
+  position: absolute;
+  top: 50%;
+  margin-left: -60px;
+}
+
+.p-home__name-container {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  overflow: hidden;
+  height: 15rem;
+  transform: translateX(-50%);
+}
+
+.p-home__name {
+  font-size: 25rem;
+  color: white;
+  opacity: 0.2;
+  font-weight: 400;
+  font-family: "Playfair";
+  white-space: nowrap;
+  position: relative;
+  top: 10rem;
+  z-index: 20;
+}

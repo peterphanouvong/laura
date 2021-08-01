@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1;wght@400;600;800&display=swap");
+
+:root {
+  /* COLOURS */
+  --g-color-1: #c49f79;
+  --g-color-2: #bb8570;
+  --g-color-3: #000;
+  --g-color-4: ;
+
+  --g-black: #000;
+  --g-grey-900: #1c1c1e;
+  --g-grey-800: #2c2c2e;
+  --g-grey-700: #3a3a3c;
+  --g-grey-600: #48484a;
+  --g-grey-500: #636366;
+  --g-grey-400: #8e8e93;
+  --g-grey-300: #aeaeb2;
+  --g-grey-200: #c7c7cc;
+  --g-grey-100: #e5e5ea;
+  --g-grey-000: #fcfbfc;
+  --g-white: #fff;
+
+  --g-color-error: #ff3b30;
+  --g-color-success: #34c759;
+  --g-color-info: #007aff;
+  --g-color-warning: #ffcc00;
+
+  /* SPACING */
+  --g-spacer-2x-small: 3px;
+  --g-spacer-x-small: 5px;
+  --g-spacer-small: 8px;
+  --g-spacer-medium: 12px;
+  --g-spacer-large: 16px;
+  --g-spacer-x-large: 20px;
+  --g-spacer-2x-large: 24px;
+
+  /* FONT SIZING */
+  --g-fs-2x-larger: 4.25rem; /* 58px */
+  --g-fs-x-larger: 3.5rem; /* 56px */
+  --g-fs-larger: 2.875rem; /* 46px */
+  --g-fs-2x-large: 2.375rem; /* 38px */
+  --g-fs-x-large: 1.875rem; /* 30px */
+  --g-fs-large: 1.5rem; /* 24px */
+  --g-fs-medium: 1.25rem; /* 20px */
+  --g-fs-small: 1rem; /* 16px */
+  --g-fs-x-small: 0.875rem; /* 14px */
+  --g-fs-2x-small: 0.75rem; /* 12px */
+
+  /* FONT WEIGHT */
+  --g-fw-light: 300;
+  --g-fw-normal: 400;
+  --g-fw-medium: 600;
+  --g-fw-bold: 700;
+
+  /* FONT FAMILY */
+  --g-ff-nunito: "Nunito", sans-serif;
+  --g-ff-poppins: "Poppins", sans-serif;
+}
+
+/* RESETS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html,
+#root {
+  height: 100%;
+  color: var(--g-grey-700);
+  font-family: var("Playfair");
+  font-size: var(--g-fs-x-small);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: var(--g-primary);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+ul {
+  list-style-type: none;
+}
+
+@import "./typography.css";
