@@ -1,5 +1,5 @@
 import React from "react";
-import src from "../../static/images/loader.gif";
+import src from "../../static/icons/loader.gif";
 import "./Loader.css";
 
 const Loader = ({ progress }) => {
@@ -11,8 +11,8 @@ const Loader = ({ progress }) => {
           className="loader__progress-inner"
           style={{ width: progress * 150 }}
         ></div>
+        <div className="loader__progress-number">{progress * 100}%</div>
       </div>
-      {progress * 100}%
     </div>
   );
 };

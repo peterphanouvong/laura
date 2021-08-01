@@ -1,10 +1,10 @@
 .navbar {
-  position: fixed;
+  position: absolute;
   color: white;
   background: none;
   width: 100%;
 
-  z-index: 20;
+  z-index: 9;
 }
 
 .navbar__inner {
@@ -13,6 +13,21 @@
   align-items: flex-start;
   width: 100%;
   padding: 48px;
+}
+
+.navbar__hamburger {
+  position: absolute;
+  cursor: pointer;
+  top: 52px;
+  left: 48px;
+  z-index: 11;
+}
+
+.navbar__hamburger-line {
+  height: 1px;
+  width: 30px;
+  background-color: white;
+  margin-top: 8px;
 }
 
 .navbar__title-group {
@@ -37,4 +52,32 @@
 
 .navbar__instagram-icon {
   fill: white;
+}
+
+.sidebar {
+  background-color: black;
+  height: 100%;
+  position: absolute;
+  width: 100vw;
+
+  left: -100vw;
+  top: 0px;
+
+  padding: 150px 55px;
+  opacity: 0.65;
+  z-index: 10;
+
+  pointer-events: all;
+}
+
+.sidebar-inner {
+  position: relative;
+  /* z-index: 10000; */
+  opacity: 1;
+  color: white;
+}
+
+.sidebar-link {
+  font-weight: 200;
+  letter-spacing: 0.4rem;
 }

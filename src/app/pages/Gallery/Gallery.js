@@ -1,20 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import SimpleReactLightbox, { SRLWrapper } from "simple-react-lightbox";
-// import GrainOverlay from "../../layout/GrainOverlay/GrainOverlay";
-import img1 from "../../static/images/daydream.jpeg";
+import { Loader } from "../../layout/Loader/Loader";
 import "./Gallery.css";
-const Gallery = ({ width }) => {
+const Gallery = ({ width, collection }) => {
+  const [loadedCount, setLoadedCount] = useState(100);
+
+  const incrementCount = () => {
+    setLoadedCount(loadedCount + 1);
+  };
+
   return (
-    <SimpleReactLightbox>
-      <div>
-        {/* <GrainOverlay /> */}
-        {/* <div style={{ padding: "25rem 0 15rem 0" }}>
-          <h1 className="gallery__title">Day Dream</h1>
-        </div> */}
+    <>
+      <SimpleReactLightbox>
         <SRLWrapper
           options={{
             settings: {
-              overlayColor: "rgba(255,255,255,0.6)",
+              overlayColor: "rgba(255,255,255,0.85)",
             },
             buttons: {
               backgroundColor: "rgba(0,0,0,0.1)",
@@ -22,38 +23,33 @@ const Gallery = ({ width }) => {
             },
           }}
         >
-          <div className="gallery__grid">
-            <a className="gallery__grid-image" href={img1}>
-              <img width={width} src={img1} alt="sugma" />
-            </a>
-            <a className="gallery__grid-image" href={img1}>
-              <img width={width} src={img1} alt="sugma" />
-            </a>
-            <a className="gallery__grid-image" href={img1}>
-              <img width={width} src={img1} alt="sugma" />
-            </a>
-            <a className="gallery__grid-image" href={img1}>
-              <img width={width} src={img1} alt="sugma" />
-            </a>
-            <a className="gallery__grid-image" href={img1}>
-              <img width={width} src={img1} alt="sugma" />
-            </a>
-            <a className="gallery__grid-image" href={img1}>
-              <img width={width} src={img1} alt="sugma" />
-            </a>
-            <a className="gallery__grid-image" href={img1}>
-              <img width={width} src={img1} alt="sugma" />
-            </a>
-            <a className="gallery__grid-image" href={img1}>
-              <img width={width} src={img1} alt="sugma" />
-            </a>
-            <a className="gallery__grid-image" href={img1}>
-              <img width={width} src={img1} alt="sugma" />
-            </a>
+          {loadedCount < collection.length && (
+            <>
+              <div style={{ paddingTop: "10rem" }}></div>
+              <Loader progress={loadedCount / collection.length} />
+            </>
+          )}
+          <div
+            style={{
+              transition: "ease 0.2s",
+              visibility: loadedCount < collection.length && "hidden",
+            }}
+            className="gallery__grid"
+          >
+            {collection.map((image) => (
+              <a className="gallery__grid-image" href={image}>
+                <img
+                  width={width}
+                  src={image}
+                  alt="sugma"
+                  onLoad={incrementCount}
+                />
+              </a>
+            ))}
           </div>
         </SRLWrapper>
-      </div>
-    </SimpleReactLightbox>
+      </SimpleReactLightbox>
+    </>
   );
 };
 

@@ -82,6 +82,14 @@ const brighten = () => {
   });
 };
 
+const noLongerHidden = () => {
+  const t1 = gsap.timeline();
+  t1.set(".p-home", {
+    delay: initialDelay + 2,
+    overflow: "auto",
+  });
+};
+
 export const homeAnimations = {
   navigationIn,
   initialNameIn,
@@ -89,4 +97,5 @@ export const homeAnimations = {
   imageIn,
   imageRotate,
   brighten,
+  noLongerHidden,
 };

@@ -72,7 +72,7 @@ html,
   font-size: var(--g-fs-x-small);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* overflow: hidden; */
+  cursor: none;
 }
 
 a {
@@ -86,12 +86,6 @@ ul {
 
 ::-webkit-scrollbar {
   display: none;
-}
-
-.viewport {
-  height: 100vh;
-  width: 100vw;
-  overflow: auto;
 }
 
 @import "./typography.css";

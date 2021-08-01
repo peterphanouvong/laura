@@ -1,7 +1,7 @@
 .p-home {
   height: 100vh;
   background: var(--g-grey-900);
-  /* overflow: hidden; */
+  overflow: hidden;
   transition: 0.5s ease;
 }
 
@@ -51,7 +51,6 @@
 
   -webkit-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
-  /* z-index: 2; */
 }
 
 .p-home__navigation {
@@ -66,7 +65,7 @@
 
   font-size: var(--g-fs-medium);
   letter-spacing: 2px;
-  z-index: 9;
+  z-index: 5;
 }
 
 .p-home__navigation > span {
@@ -105,7 +104,6 @@
   position: absolute;
   bottom: 0;
   left: 50%;
-  /* overflow: hidden; */
   height: 15rem;
   transform: translateX(-50%);
 }
@@ -137,7 +135,5 @@
   letter-spacing: 1rem;
   font-weight: 400;
   color: white;
-  /* opacity: 0.8; */
   font-size: 4rem;
-  /* text-shadow: 1px 1px 2px #a96955; */
 }

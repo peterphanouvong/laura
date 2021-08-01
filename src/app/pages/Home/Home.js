@@ -11,18 +11,48 @@ import { HomeImage } from "./HomeImage";
 import { HomeName } from "./HomeName";
 import { homeAnimations } from "./homeAnimations";
 import { Loader } from "../../layout/Loader/Loader";
-import GrainOverlay from "../../layout/GrainOverlay/GrainOverlay";
+import { GrainOverlay } from "../../layout/GrainOverlay/GrainOverlay";
 import { DarkenOverlay } from "../../layout/DarkenOverlay/DarkenOverlay";
 import { Background } from "../../layout/Background/Background";
 import { Gallery } from "../Gallery/Gallery";
+import { dayDreamCollection } from "../../static/images/daydream";
+import { littleMissyCollection } from "../../static/images/little-missy";
+import { snakeEyesCollection } from "../../static/images/snake-eyes";
+import { lovefoolCollection } from "../../static/images/lovefool";
+import { sweetTreatCollection } from "../../static/images/sweet-treat";
 
 const Home = () => {
   const [images, setImages] = useState([
-    { src: img1, name: "Sweet Treat", color: "#D3A17D" },
-    { src: img2, name: "Little Missy", color: "#794442" },
-    { src: img3, name: "Snake Eyes", color: "#382C1F" },
-    { src: img4, name: "Lovefool", color: "#946E41" },
-    { src: img5, name: "Daydream", color: "#A96955" },
+    {
+      src: img1,
+      name: "Sweet Treat",
+      color: "#D3A17D",
+      collection: sweetTreatCollection,
+    },
+    {
+      src: img2,
+      name: "Little Missy",
+      color: "#794442",
+      collection: littleMissyCollection,
+    },
+    {
+      src: img3,
+      name: "Snake Eyes",
+      color: "#382C1F",
+      collection: snakeEyesCollection,
+    },
+    {
+      src: img4,
+      name: "Lovefool",
+      color: "#946E41",
+      collection: lovefoolCollection,
+    },
+    {
+      src: img5,
+      name: "Daydream",
+      color: "#A96955",
+      collection: dayDreamCollection,
+    },
   ]);
 
   const [loadedCount, setLoadedCount] = useState(0);
@@ -32,6 +62,7 @@ const Home = () => {
     homeAnimations.initialNameIn();
     homeAnimations.homeTitleZip();
     homeAnimations.brighten();
+    homeAnimations.noLongerHidden();
   }, []);
 
   const handlePrevious = () => {
@@ -102,7 +133,7 @@ const Home = () => {
         </div>
       </div>
 
-      <Gallery />
+      <Gallery collection={images[images.length - 1].collection} />
     </>
   );
 };

@@ -9,4 +9,4 @@ const GrainOverlay = () => {
   );
 };
 
-export default GrainOverlay;
+export { GrainOverlay };
