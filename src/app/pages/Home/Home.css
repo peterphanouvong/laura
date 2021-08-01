@@ -1,22 +1,8 @@
 .p-home {
   height: 100vh;
   background: var(--g-grey-900);
-
+  /* overflow: hidden; */
   transition: 0.5s ease;
-}
-
-.p-home-grain::after {
-  height: 100vh;
-  animation: grain 24s steps(10) infinite;
-  background-image: url("../../static/images/old_moon.jpg");
-  /* background: white; */
-  content: "";
-  height: 300%;
-  left: -50%;
-  opacity: 0.2;
-  position: fixed;
-  top: -100%;
-  width: 300%;
 }
 
 @keyframes grain {
@@ -61,10 +47,11 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 0);
 
   -webkit-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+  /* z-index: 2; */
 }
 
 .p-home__navigation {
@@ -79,7 +66,7 @@
 
   font-size: var(--g-fs-medium);
   letter-spacing: 2px;
-  z-index: 100;
+  z-index: 9;
 }
 
 .p-home__navigation > span {
@@ -118,14 +105,14 @@
   position: absolute;
   bottom: 0;
   left: 50%;
-  overflow: hidden;
+  /* overflow: hidden; */
   height: 15rem;
   transform: translateX(-50%);
 }
 
 .p-home__name {
   font-size: 25rem;
-  color: white;
+  color: #fff;
   opacity: 0.2;
   font-weight: 400;
   font-family: "Playfair";
@@ -143,12 +130,14 @@
 
   display: flex;
   justify-content: center;
+  z-index: 11;
 }
 
 .p-home__title {
   letter-spacing: 1rem;
   font-weight: 400;
   color: white;
-  opacity: 0.8;
+  /* opacity: 0.8; */
   font-size: 4rem;
+  /* text-shadow: 1px 1px 2px #a96955; */
 }

@@ -1,0 +1,39 @@
+.gallery__grid {
+  padding-top: 6rem;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  position: relative;
+
+  max-width: 1400px;
+  margin: auto;
+  z-index: 9;
+}
+
+.gallery__title {
+  font-size: 25rem;
+  color: white;
+  opacity: 0.2;
+  font-weight: 400;
+  font-family: "Playfair";
+  white-space: nowrap;
+  text-align: center;
+  /* position: relative; */
+  /* top: 10rem; */
+  /* z-index: 20; */
+}
+
+.gallery__grid-image {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.gallery__grid-image > img {
+  object-fit: cover;
+  width: 100%;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+
+  /* -webkit-box-shadow: 0px 0px 5px 0px rgba(255, 255, 255, 0.5);
+  box-shadow: 0px 0px 5px 0px rgba(255, 255, 255, 0.5); */
+}

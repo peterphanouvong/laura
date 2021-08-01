@@ -1,32 +1,18 @@
 import React, { useRef, useEffect } from "react";
-import gsap from "gsap";
+import { useHistory } from "react-router-dom";
+import { homeAnimations } from "./homeAnimations";
 
-const HomeImage = ({ length, img, index }) => {
+const HomeImage = ({ length, img, index, incrementLoadedCount }) => {
   const imgRef = useRef(null);
+  const history = useHistory();
+
+  const handleClick = () => {
+    history.push("/gallery");
+  };
 
   useEffect(() => {
-    const t1 = gsap.timeline();
-
-    t1.fromTo(
-      `.p-home__image-${index}`,
-      {
-        y: "-50%",
-        x: -(
-          (imgRef.current.width - window.innerWidth) / 2 +
-          (imgRef.current.width +
-            (window.innerWidth - imgRef.current.width * length) /
-              (length - 1)) *
-            index
-        ),
-      },
-      {
-        duration: 1.6,
-        delay: 0.8,
-        ease: "power3.out",
-        y: "-50%",
-        x: 0,
-      }
-    );
+    homeAnimations.imageIn(index, imgRef.current.width, length);
+    homeAnimations.imageRotate(index, length);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -38,6 +24,8 @@ const HomeImage = ({ length, img, index }) => {
       ref={imgRef}
       src={img}
       style={{ width: 100 / length + "vw" }}
+      onLoad={incrementLoadedCount}
+      onClick={handleClick}
     />
   );
 };

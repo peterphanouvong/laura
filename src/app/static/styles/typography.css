@@ -3,8 +3,6 @@ h1,
   font-weight: var(--g-fw-medium);
   font-size: var(--g-fs-2x-large);
   line-height: 4.75rem;
-
-  opacity: 0.8;
 }
 
 h2,

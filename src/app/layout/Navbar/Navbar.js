@@ -1,36 +1,41 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import gsap from "gsap";
 
 import "./Navbar.css";
-import instagramSvg from "../../static/icons/instagram.svg";
+import instagramSvg from "../../static/icons/icons8-instagram-logo.svg";
+import { navbarAnimations } from "./navbarAnimations";
 
 const Navbar = () => {
   useEffect(() => {
-    const t1 = gsap.timeline();
-    t1.from(".navbar", {
-      opacity: 0,
-      delay: 2,
-      duration: 1.5,
-      y: -50,
-      ease: "power3.out",
-    });
+    navbarAnimations.navbarIn();
   }, []);
   return (
     <div className="navbar">
       <div className="navbar__inner">
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/faces">Faces</Link>
-          </li>
-        </ul>
+        <svg viewBox="0 0 60 60" width="28" height="28">
+          <rect
+            fill="white"
+            stroke="white"
+            y="10"
+            width="60"
+            height="1"
+            rx="2"
+          ></rect>
+          <rect
+            fill="white"
+            stroke="white"
+            y="30"
+            width="60"
+            height="1"
+            rx="2"
+          ></rect>
+        </svg>
         <div className="navbar__title-group">
-          <h1 className="navbar__title">YZCPHOTOGRAPHY</h1>
+          <h1 className="navbar__title">
+            <Link to="/">YZCPHOTOGRAPHY</Link>
+          </h1>
           <h4 className="navbar__subtitles">
-            <span>about</span>
+            <Link to="/about">about</Link>
             {" // "}
             <span>portfolio</span>
             {" // "}
@@ -40,7 +45,7 @@ const Navbar = () => {
 
         <img
           className="navbar__instagram-icon"
-          width={30}
+          width={32}
           src={instagramSvg}
           alt="ig"
         />
